@@ -5,7 +5,8 @@ function Navbar() {
     backgroundColor: '#333',
     color: 'white',
     padding: '10px 20px',
-    textAlign: 'center'
+    textAlign: 'center',
+    display: 'justifyContent',
   };
 
   return (
