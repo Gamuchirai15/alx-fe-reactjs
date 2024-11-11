@@ -8,6 +8,7 @@ const MainContent = () => {
         Cities around the world are waiting for you to explore. From cultural landmarks to vibrant streets, 
         each city has its unique charm.
       </p>
+      <p>I love to visit New York, Paris, and Tokyo.</p>
     </main>
   );
 };
