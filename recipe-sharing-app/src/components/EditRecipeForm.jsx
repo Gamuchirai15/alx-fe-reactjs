@@ -3,11 +3,10 @@ import { useRecipeStore } from '../recipeStore';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const EditRecipeForm = () => {
-  const { id } = useParams();
-  const recipe = useRecipeStore((state) => state.recipes.find((r) => r.id === parseInt(id)));
-  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
-  const navigate = useNavigate();
-
+  const { id } = useParams(); 
+  const recipe = useRecipeStore((state) => state.recipes.find((r) => r.id === parseInt(id))); 
+  const updateRecipe = useRecipeStore((state) => state.updateRecipe); 
+  const navigate = useNavigate(); 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -20,18 +19,21 @@ const EditRecipeForm = () => {
       setIngredients(recipe.ingredients.join(', '));
       setCookingTime(recipe.cookingTime);
     }
-  }, [recipe]);
+  }, [recipe]); 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+
     const updatedRecipe = {
-      id: parseInt(id),
+      id: parseInt(id), 
       title,
       description,
-      ingredients: ingredients.split(',').map((ingredient) => ingredient.trim()),
-      cookingTime: parseInt(cookingTime),
+      ingredients: ingredients.split(',').map((ingredient) => ingredient.trim()), 
+      cookingTime: parseInt(cookingTime), 
     };
+
     updateRecipe(updatedRecipe);
+
     navigate('/');
   };
 
