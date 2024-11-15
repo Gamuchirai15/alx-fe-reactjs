@@ -1,33 +1,25 @@
 import { useRecipeStore } from '../recipeStore';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import DeleteRecipeButton from './DeleteRecipeButton';
 
-const RecipeDetails = ({ recipeId }) => {
-  const recipe = useRecipeStore((state) =>
-    state.recipes.find((recipe) => recipe.id === recipeId)
-  );
-  const addFavorite = useRecipeStore((state) => state.addFavorite);
-  const removeFavorite = useRecipeStore((state) => state.removeFavorite);
-  const favorites = useRecipeStore((state) => state.favorites);
+const RecipeDetails = () => {
+  const { id } = useParams();
+  const recipe = useRecipeStore((state) => state.recipes.find((r) => r.id === parseInt(id)));
 
-  const toggleFavorite = () => {
-    if (favorites.includes(recipe.id)) {
-      removeFavorite(recipe.id);
-    } else {
-      addFavorite(recipe.id);
-    }
-  };
-
-  if (!recipe) {
-    return <p>Recipe not found</p>;
-  }
+  if (!recipe) return <p>Recipe not found</p>;
 
   return (
     <div>
       <h1>{recipe.title}</h1>
       <p>{recipe.description}</p>
-      <button onClick={toggleFavorite}>
-        {favorites.includes(recipe.id) ? 'Remove from Favorites' : 'Add to Favorites'}
-      </button>
+      <h4>Ingredients:</h4>
+      <ul>
+        {recipe.ingredients.map((ingredient, index) => (
+          <li key={index}>{ingredient}</li>
+        ))}
+      </ul>
+      <p>Cooking Time: {recipe.cookingTime} minutes</p>
+      <DeleteRecipeButton recipeId={recipe.id} />
     </div>
   );
 };
