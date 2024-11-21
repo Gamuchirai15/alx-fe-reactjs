@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  
+  // State for input fields
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -9,7 +9,8 @@ const RegistrationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
-  
+
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -18,9 +19,11 @@ const RegistrationForm = () => {
     }));
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validation check
     const newErrors = {};
     if (!formData.username) newErrors.username = 'Username is required';
     if (!formData.email) newErrors.email = 'Email is required';
@@ -29,7 +32,7 @@ const RegistrationForm = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      
+      // Simulate an API call
       console.log('Form submitted', formData);
     }
   };
@@ -41,7 +44,7 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}
+          value={formData.username}  // Value binding for username
           onChange={handleChange}
         />
         {errors.username && <span>{errors.username}</span>}
@@ -52,7 +55,7 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email}
+          value={formData.email}  // Value binding for email
           onChange={handleChange}
         />
         {errors.email && <span>{errors.email}</span>}
@@ -63,7 +66,7 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password}
+          value={formData.password}  // Value binding for password
           onChange={handleChange}
         />
         {errors.password && <span>{errors.password}</span>}
