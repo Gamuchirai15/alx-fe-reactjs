@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Profile from './pages/Profile';
+import Profile from './components/Profile';
 import ProfileDetails from './pages/ProfileDetails';
 import ProfileSettings from './pages/ProfileSettings';
 import PostDetails from './pages/PostDetails';
 import ProtectedRoute from './components/ProtectedRoute';
+import BlogPost from './pages/BlogPost';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,6 +27,8 @@ const App = () => {
         </Route>
 
         <Route path="/post/:postId" element={<PostDetails />} />
+        {/* Dynamic Route for Blog Post */}
+        <Route path="/blog/:id" element={<BlogPost />} /> {/* Dynamic route for blog post */}
       </Routes>
     </Router>
   );
