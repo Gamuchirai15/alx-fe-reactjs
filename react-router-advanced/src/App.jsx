@@ -8,6 +8,7 @@ import ProfileSettings from './pages/ProfileSettings';
 import PostDetails from './pages/PostDetails';
 import ProtectedRoute from './components/ProtectedRoute';
 import BlogPost from './pages/BlogPost';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
