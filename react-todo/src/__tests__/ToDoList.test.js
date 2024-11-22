@@ -1,12 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import TodoList from './TodoList';
+import TodoList from '../TodoList';
 
 describe('TodoList Component', () => {
   test('renders TodoList component correctly', () => {
     render(<TodoList />);
-    // Check if the TodoList header is rendered
     expect(screen.getByText(/Todo List/i)).toBeInTheDocument();
-    // Check if the initial todos are rendered
     expect(screen.getByText(/Learn React/i)).toBeInTheDocument();
     expect(screen.getByText(/Build a Todo App/i)).toBeInTheDocument();
   });

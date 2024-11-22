@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
+import AddTodoForm from 'AddTodoForm';
 
 const TodoList = () => {
-  
   const [todos, setTodos] = useState([
     { id: 1, text: 'Learn React', completed: false },
     { id: 2, text: 'Build a Todo App', completed: false },
   ]);
-  const [newTodo, setNewTodo] = useState('');
 
-  const addTodo = () => {
-    if (newTodo.trim()) {
-      const newTodoItem = {
-        id: Date.now(),
-        text: newTodo,
-        completed: false,
-      };
-      setTodos([...todos, newTodoItem]);
-      setNewTodo('');
-    }
+  const addTodo = (text) => {
+    const newTodoItem = {
+      id: Date.now(),
+      text: text,
+      completed: false,
+    };
+    setTodos([...todos, newTodoItem]);
   };
 
   const toggleTodo = (id) => {
@@ -35,15 +31,7 @@ const TodoList = () => {
   return (
     <div>
       <h1>Todo List</h1>
-      <div>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Add a new todo"
-        />
-        <button onClick={addTodo}>Add Todo</button>
-      </div>
+      <AddTodoForm onAdd={addTodo} /> {/* Use AddTodoForm here */}
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
