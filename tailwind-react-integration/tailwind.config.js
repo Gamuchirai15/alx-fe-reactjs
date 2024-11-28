@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html"
-  ],
-  darkMode: false, 
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],  // This is the older syntax for purging unused CSS in production
+  darkMode: false,
   theme: {
     extend: {},
   },
@@ -12,4 +9,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}
