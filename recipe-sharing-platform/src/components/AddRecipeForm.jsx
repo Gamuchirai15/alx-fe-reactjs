@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
 
 const AddRecipeForm = () => {
-  
+  // State for form inputs
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [instructions, setInstructions] = useState('');
+  const [steps, setSteps] = useState(''); // Renamed from 'instructions' to 'steps'
   const [error, setError] = useState('');
 
+  // Form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!title || !ingredients || !instructions) {
+    // Validate form fields
+    if (!title || !ingredients || !steps) {
       setError('All fields are required');
       return;
     }
 
+    // Simulate adding a new recipe (e.g., send to an API or state)
     const newRecipe = {
       title,
-      ingredients: ingredients.split('\n'), 
-      instructions,
+      ingredients: ingredients.split('\n'), // Convert ingredients into an array
+      steps, // Using 'steps' for the cooking instructions
     };
 
     console.log('New Recipe:', newRecipe);
 
+    // Reset the form fields after submission
     setTitle('');
     setIngredients('');
-    setInstructions('');
+    setSteps('');
     setError('');
   };
 
@@ -61,14 +65,14 @@ const AddRecipeForm = () => {
         </div>
 
         <div>
-          <label htmlFor="instructions" className="block text-lg font-medium text-gray-700">Cooking Instructions</label>
+          <label htmlFor="steps" className="block text-lg font-medium text-gray-700">Cooking Steps</label>
           <textarea
-            id="instructions"
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
+            id="steps"
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
             rows="5"
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter cooking instructions"
+            placeholder="Enter cooking steps"
           />
         </div>
 
