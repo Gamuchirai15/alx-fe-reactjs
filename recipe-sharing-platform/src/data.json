@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "title": "Spaghetti Carbonara",
+      "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "title": "Chicken Tikka Masala",
+      "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 3,
+      "title": "Grilled Cheese Sandwich",
+      "summary": "A simple and delicious sandwich with melted cheese between crispy toasted bread.",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "title": "Vegetable Stir-Fry",
+      "summary": "A healthy and colorful stir-fry with a variety of fresh vegetables and soy sauce.",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
+  
