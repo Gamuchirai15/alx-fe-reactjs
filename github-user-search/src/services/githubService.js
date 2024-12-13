@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.github.com/search/users';
+const API_URL = 'https://api.github.com/search/users?q';
 
 export const fetchUserData = async (query, page = 1, location = '', minRepos = '') => {
   const perPage = 10; 
